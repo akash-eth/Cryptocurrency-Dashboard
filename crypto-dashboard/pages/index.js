@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import CoinGecko from 'coingecko-api';
+const coinGeckoClient = new CoinGecko();
 
 export default function Home() {
   return (
@@ -62,4 +64,11 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  const params = {
+    order: CoinGecko.ORDER.MARKET_CAP_DESC
+  }
+  const result = await coinGeckoClient.coins.markets({params})
 }
