@@ -1,11 +1,10 @@
 #### CryptoInfo-Dashboard ####
 
-![WorkFlow](/crypto-dashboard.png)
-Format: ![WorkFlow]()
+![WorkFlow](crypto-dashboard/crypto-dashboard.png)
 
 ##### CryptoInfo-Dashboard is a personalized mechanism to get the *STATS* for he current crypto market ####
 
-###### This platform is made using : ######
+##### This platform is made using : #####
 
 1. NodeJS(Backend: Including inbuild libraries)
 
@@ -18,10 +17,10 @@ Format: ![WorkFlow]()
 ##### How to operate: #####
 
 1. Get the clone of this repo !!
-    $ git clone https://github.com/akashbhardwaj04/Cryptocurrency-Dashboard.git
+#####    $ git clone https://github.com/akashbhardwaj04/Cryptocurrency-Dashboard.git
 
 2. Enter inside crypto-dashboard:
-    $ cd cryto-dashboard
+#####    $ cd cryto-dashboard
 
 3. Run using npm:
-    $ npm run dev
+#####    $ npm run dev
