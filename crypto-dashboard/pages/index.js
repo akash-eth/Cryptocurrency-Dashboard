@@ -5,7 +5,22 @@ const coinGeckoClient = new CoinGecko();
 
 export default function Home(props) {
   const {data} = props.result;
-  console.log(data);
+
+  const formatPercent = number =>
+    `${new Number(number).toFixed(2)}%`
+
+  const formatRupee = (number, maximumSignificantDigits) =>
+    new Intl.NumberFormat(
+      'en-US',
+      {
+        style: 'currency',
+        currency: 'INR',
+        maximumSignificantDigits
+      }
+    )
+    .format(number)
+
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -31,9 +46,18 @@ export default function Home(props) {
                   style={{width:25, height:25, marginRight: 10}}
                 /> 
                 {coin.symbol.toUpperCase()} </td>
-              <td> {coin.price_change_percentage_24h} </td>
-              <td> {coin.current_price} </td>
-              <td> {coin.market_cap} </td>
+              <td>
+                <span 
+                    className = {coin.price_change_percentage_24h >0 ? (
+                      'text-success'
+                    ) : 'text-danger'}
+                  >
+                    {formatPercent(coin.price_change_percentage_24h)} 
+                </span> 
+                
+              </td>
+              <td> {formatRupee(coin.current_price)} </td>
+              <td> {formatRupee(coin.market_cap)} </td>
             </tr>
           ))}
         </tbody>
